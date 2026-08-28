@@ -1,0 +1,68 @@
+# =============================================================================
+# Netlify deployment config
+#
+# The site is a Next.js static export, so Netlify serves plain files from
+# `out/` — no Next.js runtime, no serverless functions, no cold starts.
+# =============================================================================
+
+[build]
+  command = "npm run build"
+  publish = "out"
+
+[build.environment]
+  # Next 16 needs Node 20.9+. Pinned so local and CI builds match.
+  NODE_VERSION = "22"
+  NEXT_TELEMETRY_DISABLED = "1"
+
+# -----------------------------------------------------------------------------
+# Caching
+#
+# Next fingerprints everything under /_next/static, so those can be cached
+# forever. HTML must revalidate so a new deploy is picked up immediately.
+# -----------------------------------------------------------------------------
+[[headers]]
+  for = "/_next/static/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/*.html"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+
+[[headers]]
+  for = "/"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+
+# Images are content-addressed by path; a month is a safe middle ground.
+[[headers]]
+  for = "/media/*"
+  [headers.values]
+    Cache-Control = "public, max-age=2592000"
+
+[[headers]]
+  for = "/team/*"
+  [headers.values]
+    Cache-Control = "public, max-age=2592000"
+
+[[headers]]
+  for = "/logos/*"
+  [headers.values]
+    Cache-Control = "public, max-age=2592000"
+
+[[headers]]
+  for = "/brand/*"
+  [headers.values]
+    Cache-Control = "public, max-age=2592000"
+
+# -----------------------------------------------------------------------------
+# Baseline security headers
+# -----------------------------------------------------------------------------
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    X-Frame-Options = "SAMEORIGIN"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "geolocation=(), microphone=(), camera=()"
