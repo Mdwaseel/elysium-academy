@@ -1,6 +1,5 @@
 import { Header } from "@/components/sections/Header";
 import { Hero } from "@/components/sections/Hero";
-import { RatingBar } from "@/components/sections/RatingBar";
 import { Why } from "@/components/sections/Why";
 import { DayInTheLife } from "@/components/sections/DayInTheLife";
 import { Space } from "@/components/sections/Space";
@@ -29,7 +28,6 @@ export default function Home() {
 
       <main id="main">
         <Hero />
-        <RatingBar />
         <Why />
         <DayInTheLife />
         <Space />

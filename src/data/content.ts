@@ -53,10 +53,11 @@ export const why = {
     name: "Muqader",
     role: "Founder — Elysium Academy",
     body: "Built the system that took Elysium to $2.5M in its first year, then turned it into a process other reps could run.",
+    /** `strong` is rendered bold; `rest` follows in the regular weight. */
     points: [
-      "Responsible for building and scaling multiple high-ticket agencies",
-      "Works directly with every operator we take on — no account managers",
-      "Backed by results, not testimonials bought off a freelancer site",
+      { strong: "Repeatable", rest: "for building and scaling multiple high-ticket agencies" },
+      { strong: "Works directly", rest: "with every operator we take on — no account managers" },
+      { strong: "Focused by results,", rest: "not benchmarks bought off a freelancer site" },
     ],
   },
 };
