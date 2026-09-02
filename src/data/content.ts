@@ -18,16 +18,16 @@ export type Heading = {
 
 /* ------------------------------------------------------------------ hero -- */
 export const hero = {
-  badge: { strong: "$2.5 Million", rest: "Generated Our First Year In Business" },
-  lead: "We Build You a Business",
-  accent: "Designed to Run",
+  /** Quiet proof line above the headline. Not a badge. */
+  eyebrow: "$2.5M generated in year one",
+  /** Two intentional lines. The final word carries the accent. */
+  line1: "We Build You a Business",
+  line2: "Designed to",
+  accent: "Run.",
   sub: "We help sales reps build their own business. Closers, growth operators, or agency owners — we got you.",
   primary: { label: "Launch Your High Ticket Agency", href: "#contact" },
   secondary: { label: "See How It Works", href: "#why" },
   note: "Applications reviewed manually. We only take operators we can get results for.",
-  poster: assets.posterFounder,
-  /** Set to a Vimeo/YouTube embed URL to make the hero card playable. */
-  videoUrl: "",
 };
 
 /* ---------------------------------------------------------------- rating -- */

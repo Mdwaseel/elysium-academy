@@ -33,12 +33,14 @@ export const assets = {
   },
 
   /* ------------------------------------------------------------- hero -- */
+  /* Near-black on the left with the blue atmosphere concentrated on the
+     right — already composed for white copy on the left. */
   hero: {
-    src: "/media/1.jpeg",
+    src: "/media/hero-bg.png",
     alt: "",
-    width: 1685,
-    height: 937,
-    position: "center 55%",
+    width: 1672,
+    height: 941,
+    position: "center center",
   },
 
   /* --------------------------------------------------- video posters -- */
@@ -117,6 +119,17 @@ export const assets = {
 } satisfies Record<string, Asset>;
 
 export type AssetKey = keyof typeof assets;
+
+/**
+ * The animated revenue dashboard shown in the hero. 1280×720, 10s loop.
+ * Served as a plain <video>; no poster needed since the first frame is the
+ * dashboard itself.
+ */
+export const heroVideo = {
+  src: "/media/hero-dashboard.mp4",
+  width: 1280,
+  height: 720,
+} as const;
 
 /**
  * Square stand-ins for the client-wins wall. These MUST be replaced with real
